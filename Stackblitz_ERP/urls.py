@@ -18,7 +18,7 @@ from django.urls import path,include
 from django.conf import settings 
 from django.conf.urls.static import static
 from django.views.static import serve 
-from django.conf.urls import url 
+from django.urls import re_path as url
 
 
 admin.site.site_header  =  "Online ERP Solution" 
@@ -31,7 +31,7 @@ urlpatterns = [
     path('hrm/', include('hrm_module.urls')),
     path('acc/', include('authenticationApp.urls')),
 
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':settings.MEDIA_ROOT}), 
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
     
 
