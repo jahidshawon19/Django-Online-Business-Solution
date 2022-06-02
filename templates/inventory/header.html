@@ -1,0 +1,71 @@
+<!doctype html>
+{% load static %}
+<html class="no-js" lang="en">
+    
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title> Online ERP Solution </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPn-qo9D1NyMIXLvtMVs42bx_ujUJyg3ymRw&usqp=CAU">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+        <link rel="stylesheet" href="{% static 'css/app.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style type="text/css">
+  *{
+    font-size: 13px;
+  }
+</style>
+   
+    </head>
+    <body>
+        <div class="main-wrapper">
+            <div class="app" id="app">
+                <header class="header">
+               
+                    <div class="header-block header-block-collapse d-lg-none d-xl-none">
+                        <button class="collapse-btn" id="sidebar-collapse-btn">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </div>
+               
+                    <div class="header-block header-block-nav">
+                        <ul class="nav-profile">
+                            <li class="profile dropdown">
+                                <a class="nav-link" href="{% url 'stock-home-page' %}" role="button" aria-haspopup="true" aria-expanded="false">
+                                    
+                                    <span class="name"> Stock</span>
+                                </a>
+                         
+                            </li>
+                            <li class="profile dropdown">
+                                <a class="nav-link" href="{% url 'inventory-home-page' %}" role="button" aria-haspopup="true" aria-expanded="false">
+                                    
+                                    <span class="name"> Inventory</span>
+                                </a>
+                         
+                            </li>
+                            <li class="profile dropdown">
+                                <a class="nav-link" href="{% url 'hrm-home' %}" role="button" aria-haspopup="true" aria-expanded="false">
+                                    
+                                    <span class="name">HRM</span> 
+                                </a>
+                         
+                            </li>
+                            <li class="profile dropdown">
+                                <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <div class="img" style="background-image: url('https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png')"></div>
+                                    <span class="name"> {{request.user.username}}  </span>
+                                </a>
+                         
+                            </li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </div>
+                </header>

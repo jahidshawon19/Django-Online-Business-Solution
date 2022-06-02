@@ -1,0 +1,68 @@
+{% load static %}
+{% include 'hrm/header.html' %}
+{% include 'hrm/sidebar.html' %}
+
+
+{% load crispy_forms_tags %}
+<style type="text/css">
+  *{
+    font-size: 13px;
+  }
+
+</style>
+
+
+<section class="py-5 mt-3">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-4"><h4 class="ml-3 mt-4 font-weight-bold text-center mt-2">Attendance Table</h4>
+                <hr></div>
+                
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                
+        </div>
+    </div>
+</section>
+
+
+
+<section class="py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-hover table-light">
+                    <thead>
+                      <tr>
+                       
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                      
+                       
+                       
+                        <th scope="col">Date</th>
+                     
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                     {% for att in attandance %}
+                      <tr>
+                        <td>{{att.employee.first_name}}</td>
+                        <td>{{att.employee.last_name}}</td>
+                       
+                     
+                        <td>{{att.created}}</td>
+                    
+                      </tr>
+
+                      {% endfor %}
+                 
+                     
+                  
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>

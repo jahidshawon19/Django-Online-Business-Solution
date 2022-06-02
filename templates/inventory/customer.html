@@ -1,0 +1,60 @@
+{% load static %}
+{% include 'inventory/header.html' %}
+{% include 'inventory/sidebar.html' %}
+
+<section class="py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                      <h3>Customer Information</h3>
+                      <hr>
+                      <p><span class="text-info">Customer Name: </span>{{customer.name}}</p>
+                      <p><span class="text-info">Contact Number: </span>{{customer.phone}}</p>
+                      <p><span class="text-info">Email: </span>{{customer.email}}</p>
+                      <p><span class="text-info">Total Orders: </span>{{total_orders}}</p>
+
+                      <div class="d-flex">
+                          <div><a href="{% url 'create-order' customer.id %}" class="btn btn-danger">Place Order</a></div>
+                          <div><a href="{% url 'update-customer' customer.id %}" class="btn btn-success ml-3">Update Customer</a></div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Date Order</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                   {% for order in orders %}
+                        <tr>
+                            <td>{{order.product}}</td>
+                            <td>{{order.product.category}}</td>
+                            <td>{{order.status}}</td>
+                            <td>{{order.date_created}}</td>
+                            <td> <a href="{% url 'update-order' order.id %}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a></td>
+                            <td><a href="{% url 'delete-order' order.id %}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a></td>
+                        </tr>
+                   {% endfor %}
+                    
+                  
+                    </tbody>
+                  </table>
+                  
+            </div>
+        </div>
+    </div>
+</section>

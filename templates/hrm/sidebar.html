@@ -1,0 +1,59 @@
+{% load static %}
+<style type="text/css">
+  *{
+    font-size: 13px;
+  }
+ 
+</style>
+<aside class="sidebar">
+    <div class="sidebar-container">
+        <div class="sidebar-header">
+            <div class="brand">
+                <h3 class="font-weight-bold mt-2"> <a style="text-decoration:none; color: #fff;
+                    text-align: left;
+                    padding-left: 10px;
+                    line-height: 50px;
+                    font-size: 18px;" href="#">Online ERP Solution</a></h3></div>
+        </div>
+        <nav class="menu">
+            <ul class="sidebar-menu metismenu" id="sidebar-menu">
+                <li>
+                    <a href="{% url 'hrm-home' %}">
+                        <i class="fa fa-home"></i> Dashboard </a>
+                </li>
+            
+               
+
+                <li>
+                    <a href="{% url 'employee-list' %}">
+                        <i class="fas fa-list-ul"></i>Employee List </a>
+                </li>
+                <li>
+                    <a href="{% url 'add-employee' %}">
+                        <i class="fas fa-user-plus"></i> Add New Employee </a>
+                </li>
+                <li>
+                    <a href="{% url 'attendance-list' %}">
+                        <i class="fas fa-list-alt"></i>  Employee Attendance </a>
+                </li>
+                
+                <li>
+                    <a href="{% url 'attendance' %}">
+                        <i class="far fa-plus-square"></i>  Make Attendance </a>
+                </li>
+                <li>
+                   
+                    <a href="" onclick=location.reload()>
+                        <i class="fas fa-retweet"></i> Refresh</a>
+                </li>
+
+               
+               
+                
+
+            
+        </ul>
+        </nav>
+    </div>
+    
+</aside>

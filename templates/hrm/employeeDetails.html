@@ -1,0 +1,84 @@
+{% load static %}
+{% include 'hrm/header.html' %}
+{% include 'hrm/sidebar.html' %}
+
+
+{% load crispy_forms_tags %}
+<style type="text/css">
+  *{
+    font-size: 13px;
+  }
+
+  .emp-photo{
+    height: 150px;
+    width:150px;
+  }
+</style>
+
+
+<section class="py-5">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-lg-4"><h4 class="mt-4 font-weight-bold mt-2 text-dark">Employee Details</h4></div>
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4"> <img src="{{employee.photo.url}}" class="img-fluid emp-photo rounded" alt=""></div>
+    </div>
+  
+
+  <div class="row mt-2">
+    <div class="col-lg-6">
+      <label>Employee Name</label>
+      <input type="text" class="form-control" value="{{employee.name}}" disabled>
+        <hr>
+      <label>Department Name</label>
+      <input type="text" class="form-control" value="{{employee.department}}" disabled>
+
+     
+
+      <hr>
+      <label>Designation</label>
+      <input type="text" class="form-control" value="{{employee.designation}}" disabled>
+
+      <hr>
+      <label>Salary</label>
+      <input type="text" class="form-control" value="{{employee.salary}} BDT" disabled>
+
+      <hr>
+      <label>Gender</label>
+      <input type="text" class="form-control" value="{{employee.gender}}" disabled>
+       
+      <hr>
+      <label>Mobile</label>
+      <input type="text" class="form-control" value="{{employee.mobile}}" disabled>
+    </div>
+
+
+    <div class="col-lg-6">
+
+
+ 
+      <label>Email</label>
+      <input type="text" class="form-control" value="{{employee.email}}" disabled>
+
+      <hr>
+      <label>Date of Birth</label>
+      <input type="text" class="form-control" value="{{employee.dob}}" disabled>
+
+      <hr>
+      <label>Joinig Date</label>
+      <input type="text" class="form-control" value="{{employee.joined_on}}" disabled>
+
+      <hr>
+      <label>Adress</label>
+      <textarea type="text" class="form-control" disabled>{{employee.address}}</textarea>
+
+      <hr>
+      <label>City</label>
+      <input type="text" class="form-control" value="{{employee.city}}" disabled>
+
+      <hr>
+      <label>Country</label>
+      <input type="text" class="form-control" value="{{employee.country}}" disabled>
+    </div>
+  </div>
+</section>

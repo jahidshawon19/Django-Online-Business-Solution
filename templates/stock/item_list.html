@@ -1,0 +1,88 @@
+{% load static %}
+{% include 'stock/header.html' %}
+{% include 'stock/sidebar.html' %}
+{% load crispy_forms_tags %}
+<style type="text/css">
+  *{
+    font-size: 13px;
+  }
+</style>
+<section class="py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          {% if messages %}
+          <ul class="messages">
+                 {% for message in messages %}
+                       <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                 {% endfor %}
+         </ul>
+         {% endif %}
+        </div>
+        <div class="col-lg-4"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><h4 class="ml-3 mt-4 font-weight-bold text-center">Product Table</h4>
+        <hr></div>
+        
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          <form method='POST' action=''>
+            {% csrf_token %}
+            {{form|crispy}}
+          <input type="submit" class="btn btn-info" value='Search'/>
+        </form>
+        </div>
+      </div>
+        <div class="row">
+            <div class="col-lg-12 mt-2">
+            
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                       
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Unit Price</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Updated</th>
+                        <th scope="col">Action</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for prod in query %}
+                      <tr>
+                    
+                        <td>{{prod.Product_Name}}</td>
+                        <td class="text-info">{{prod.category}}</td>
+                        
+
+                        <td>
+                          {% if prod.Quantity <= 50 %}
+                          <div class="bg-danger text-light text-center">{{prod.Quantity}}</div>
+                          {% else %}
+                          {{prod.Quantity}}
+                          {% endif %}
+                        </td>
+
+                        
+                        <td>{{prod.Price}}</td>
+                        <td>{{prod.Created_At}}</td>
+                        <td>{{prod.Last_Updated}}</td>
+                      
+                        <td>
+                            <a href="{% url 'product-detail' prod.id %}" class="btn btn-warning btn-sm">Details</a>||
+                          <a href="{% url 'update-product' prod.id %}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> ||
+                            <a href="{% url 'delete-product' prod.id %}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a> 
+                      </tr>
+                      {% endfor %}
+                  
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>

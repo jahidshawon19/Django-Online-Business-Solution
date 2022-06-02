@@ -1,0 +1,132 @@
+{% load static %}
+{% include 'inventory/header.html' %}
+{% include 'inventory/sidebar.html' %}
+
+<section class="py-5">
+    <div class="container">
+        <h3 class="mt-5 text-info font-weight-bold text-center">WELCOME TO INVENTORY MODULE</h3>
+        <div class="row mt-3">
+            <div class="col-lg-4">
+                <div class="card" style="background-color: #E9967A;">
+                    <div class="card-body">
+                      <h4 class="text-light"><i class="fas fa-user-tie"></i> Total Customer </h4>
+                      <h2 class="text-light">{{total_customer}}</h2>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card" style="background-color: #e6d53d;">
+                    <div class="card-body">
+                      <h4 class="text-light"><i class="fab fa-first-order"></i> Total Orders </h4>
+                      <h2 class="text-light">{{total_orders}}</h2>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="card" style="background-color: #98FB98;">
+                <div class="card-body">
+                    <h4 class="text-light"><i class="far fa-folder-open"></i> Order Status </h4>
+                    <div class="d-flex">
+                        <div class="ml-3">
+                            <p class="text-danger font-weight-bold">Pending</p>
+                            <Strong class="text-danger">{{pending}}</Strong>
+                        </div>
+                        <div  class="ml-3">
+                            <p class="text-success  font-weight-bold" >Delivered</p>
+                            <Strong class="text-success">{{delivered}}</Strong>
+                        </div>
+                        <div  class="ml-3">
+                            <p class="text-primary  font-weight-bold">Out For Delivery</p>
+                            <Strong class="text-primary">{{out_for_del}}</Strong>
+                        </div>
+                    </div>
+                  </div>
+               </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            
+            <div class="col-lg-6">
+                <h4 class="text-secondary font-weight-bold">Orders Table</h4>
+                <hr>
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                      <tr>
+                       
+                        <th scope="col">Product </th>
+                        <th scope="col">Quantity </th>
+                        <th scope="col">Date Ordered</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Update</th>
+                       
+                        <th scope="col">Cancel</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                     {% for order in all_orders %}
+                      <tr>
+                     
+                        <td>{{order.product}}</td>
+                        <td>{{order.quantity}}</td>
+                        <td>{{order.date_created}}</td>
+                        <td>{{order.status}}</td>
+                        <td>
+                           
+                            <a href="{% url 'update-order' order.id %}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                         </td>
+                              <td>
+                                <a href="{% url 'delete-order' order.id %}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a> 
+                              </td>
+                             
+                      
+                                
+                      
+                        
+                      </tr>
+                      {% endfor %}
+                     
+                  
+                  
+                    </tbody>
+                  </table>
+            </div>
+
+            <div class="col-lg-6">
+                <h4 class="text-secondary font-weight-bold">Customers Table</h4>
+                <hr>
+                <table class="table table-striped">
+                    <thead class="thead-light">
+                      <tr>
+                       
+                        <th scope="col">Customer Name </th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Details</th>
+                        
+                   
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                     {% for customer in all_customers %}
+                      <tr>
+                     
+                        <td>{{customer.name}}</td>
+                        <td>{{customer.phone}}</td>
+                        <td><a href="{% url 'customer-details' customer.id %}" class="btn btn-warning">Details</a></td>
+                  
+                     
+                                
+                      
+                        
+                      </tr>
+                      {% endfor %}
+                     
+                  
+                  
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,157 @@
+{% load static %}
+{% include 'hrm/header.html' %}
+{% include 'hrm/sidebar.html' %}
+
+<style>
+    *{
+    font-size: 13px;
+  }
+  .card1{
+    background-color: #FF7F50;
+    color:white;
+  }
+  .card1 .fa-folder-minus{
+    font-size: 25px;
+  }
+  .card3{
+    background-color: #2F4F4F;
+    color:white;
+  }.card3 .fa-hand-holding-usd{
+    font-size: 25px;
+  }
+
+  .card2{
+    background-color: #90EE90;
+    color:white;
+  }
+  .card2 .fa-user-tie{
+    font-size: 25px;
+
+  }
+
+
+  .emp-photo{
+    height: 50px;
+    width:50px;
+  }
+
+</style>
+
+<section class="py-5">
+    <div class="container">
+        <h3 class="mt-5 text-success font-weight-bold text-center">WELCOME TO HRM MODULE</h3>
+
+        <div class="row mt-5">
+          <div class="col-lg-4">
+
+            <div class="card card1">
+              <div class="card-body">
+               <h5> <i class="fas fa-folder-minus"></i> Total Department</h5>
+               <h2>{{TotalDepartment}}</h2>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-lg-4">
+            <div class="card card2">
+              <div class="card-body">
+                <h5><i class="fas fa-user-tie"></i> Total Employee</h5>
+                <h2>{{TotalEmployee}}</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card card3">
+              <div class="card-body">
+               <h5> <i class="fas fa-hand-holding-usd"></i> Salary Paid</h5>
+               <h2>{{total_salary}} BDT</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+</section>
+
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div>
+          <canvas id="myChart"></canvas>
+        </div>
+        <script>
+          const labels = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+          ];
+        
+          const data = {
+            labels: labels,
+            datasets: [{
+              label: 'My First dataset',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: [0, 10, 5, 2, 20, 30, 45],
+            }]
+          };
+        
+          const config = {
+            type: 'line',
+            data: data,
+            options: {}
+          };
+        </script>
+        <script>
+          const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+          );
+        </script>
+      </div>
+
+      <div class="col-lg-6">
+        <h5 class="text-secondary font-weight-bold">Latest Five Employee</h5>
+        <table class="table table-light">
+          <thead class="thead-dark">
+            <tr>
+              
+            
+              <th scope="col">Name</th>
+              <th scope="col">Department</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mobile</th>
+              <th scope="col">Designation</th>
+             
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for emp in last_five %}
+            <tr>
+            
+              
+              <td>{{emp.name}}</td>
+              <td>{{emp.department}}</td>
+              <td>{{emp.designation}}</td>
+              <td>{{emp.mobile}}</td>
+              <td>{{emp.email}}</td>
+          
+              
+
+            </tr>
+            {% endfor %}
+           
+        
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>

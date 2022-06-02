@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online ERP Solution</title>
+    <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPn-qo9D1NyMIXLvtMVs42bx_ujUJyg3ymRw&usqp=CAU">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    
+
+
+    <style type="text/css">
+  *{
+    font-size: 13px;
+  }
+
+  body{
+    background-image: url('https://images.pexels.com/photos/70911/pexels-photo-70911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  }
+
+     
+        .card{
+            width: 100%;
+        }
+        .alert{
+            width: 50%;
+        }
+        .card-title {
+            font-size: 35px;
+            font-weight: bold;
+
+        }
+        .module-btn{
+            background-color: rgb(70, 70, 66);
+            border: none;
+            color:white;
+        }
+        .module-btn:hover{
+            background-color: rgb(57, 68, 65);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><h4 class="font-weight-bold text-warning">𝙎𝙩𝙖𝙘𝙠𝘽𝙡𝙞𝙩𝙯-𝙀𝙍𝙋</h4></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+           
+            <li class="nav-item">
+                <a class="nav-link text-success" href="#"><i class="fas fa-user"></i> {{request.user.first_name}} {{request.user.last_name}} </a>
+              </li>
+           
+            <li class="nav-item">
+              <a class="nav-link text-primary" href="{% url 'logout' %}"> <i class="fas fa-sign-out-alt"></i>Logout</a>
+            </li>
+       
+           
+          </ul>
+          
+        </div>
+      </nav>
+
+
+
+      <div class="container">
+            <div class="row mt-5 py-5">
+                <div class="col-lg-12">
+                    
+                    
+                  
+                    {% if messages %}
+                    {% for message in messages %}
+                        <h2 class="alert alert-success">{{message}}</h2>
+                    {% endfor %}
+                {% endif %}
+                </div>
+            </div>
+          <div class="row mt-3 py-4">
+            <div class="col-lg-4">
+                <div class="card bg-info">
+                    <div class="card-body">
+                      <h5 class="card-title text-light">Stock Module</h5>
+                      <a href="{% url 'stock-home-page' %}" class="module-btn btn btn-primary btn-sm">Open Module</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card bg-danger">
+                    <div class="card-body">
+                      <h5 class="card-title text-light">Inventory Module</h5>
+                      <a href="{% url 'inventory-home-page' %}" class="module-btn btn btn-primary btn-sm">Open Module</a>
+                    </div>
+                  </div>
+            </div>
+          
+
+        
+            <div class="col-lg-4">
+                <div class="card bg-success">
+                    <div class="card-body">
+                      <h5 class="card-title text-light">HRM Module</h5>
+                      <a href="{% url 'hrm-home' %}" class="module-btn btn btn-primary btn-sm">Open Module</a>
+                    </div>
+                  </div>
+            </div>
+          </div>
+      </div>
+   
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

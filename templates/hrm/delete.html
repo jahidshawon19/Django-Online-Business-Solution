@@ -1,0 +1,35 @@
+{% load static %}
+{% include 'hrm/header.html' %}
+{% include 'hrm/sidebar.html' %}
+<style type="text/css">
+  *{
+    font-size: 13px;
+  }
+</style>
+<section class="py-5 mt-5">
+    <div class="container"> 
+        <div class="row mt-5">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 mt-5">
+                <div class="card bg-secondary text-light">
+                    <div class="card-body">
+                      <form action="" method="post">
+                          {% csrf_token %}
+                          <h5>Are you sure to delete?</h5>
+                          <input type="submit" value="Yes" class="btn btn-danger">
+                          <a href="{% url 'employee-list' %}" class="btn btn-warning">Cancel</a>
+                      </form>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-4"></div>
+     
+
+
+           
+        </div>
+    </div>
+</section>
+
+
+{% include 'stock/footer.html' %}

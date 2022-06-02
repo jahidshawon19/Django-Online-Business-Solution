@@ -1,0 +1,20 @@
+{% load static %}
+{% include 'inventory/header.html' %}
+{% include 'inventory/sidebar.html' %}
+{% load crispy_forms_tags %}
+
+<section class="py-5 mt-5">
+    <div class="container">
+        <div class="row py-5">
+           
+            <div class="col-lg-6 py-5">
+                <h4 class="text-secondary font-weight-bold">Are you sure to delete {{item}}?</h4>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <a href="{% url 'inventory-home-page' %}" class="btn btn-secondary">Cancel</a>
+                        <input type="submit" class="btn btn-danger" value="Delete Order">
+                    </form>
+            </div>
+        </div>
+    </div>
+</section>

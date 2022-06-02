@@ -1,0 +1,80 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackblitz ERP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+        body{
+            background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+        }
+    .card{
+        background-color: white;
+    }
+        #hint_id_username, #hint_id_password1{
+            display: none;
+        }
+        .form-group{
+            width:80%;
+        }
+    </style>
+</head>
+<body>
+    
+    <section class="py-5 mt-3">
+        <div class="container">
+            <h1 class="text-center font-weight-bold">Online ERP Solution</h1>
+            <p class="text-center lead text-secondary font-weight-bold font-italic">Online ERP Solution</p>
+            <!-- <hr> -->
+           
+               
+                    <div class="row mt-2">
+                    
+                        <div class="col-lg-6">
+                          
+                            
+                                   <div class="card">
+                                    <h4 class="font-weight-bold text-center mt-2 text-secondary">Create User Account</h4>
+                                       <div class="card-body ">
+                                        <form action="" method="post">
+                                            {% csrf_token %}
+                                            {{signupForm|crispy}}
+                                            <input type="submit" class="btn btn-warning" value="Sign up">
+                                        </form>
+                                       </div>
+                                   </div>
+                               
+                            
+                          
+                        </div>
+
+                        <div class="col-lg-6">
+                            <img src="https://i.ibb.co/tBqLS0W/902ae3b73af0a06c61744a4d42091b15.png" alt="" class="img-fluid">
+                        </div>
+       
+                          
+                      </div>
+               
+            
+            
+            
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

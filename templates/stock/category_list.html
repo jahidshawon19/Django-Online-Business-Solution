@@ -1,0 +1,63 @@
+{% load static %}
+{% include 'stock/header.html' %}
+{% include 'stock/sidebar.html' %}
+<style type="text/css">
+  *{
+    font-size: 13px;
+  }
+</style>
+<section class="py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          {% if messages %}
+          <ul class="messages">
+                 {% for message in messages %}
+                       <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                 {% endfor %}
+         </ul>
+         {% endif %}
+        </div>
+        <div class="col-lg-4"></div>
+      </div>
+        <div class="row mt-3">
+            <h5 class="ml-3 font-weight-bold">Category Table</h5>
+           
+            <div class="col-lg-12 mt-2">
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">SL</th>
+                        <th scope="col">Category Name</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Updated</th>
+                        <th scope="col">Action</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for cat in query %}
+                      <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td>{{cat.name}}</td>
+                        {% if cat.status == 'Active' %}
+                        <td class="text-success">{{cat.status}}</td>
+                        {% else %}
+                        <td class="text-danger">{{cat.status}}</td>
+                        {% endif %}
+                        <td>{{cat.created_at}}</td>
+                        <td>{{cat.updated_at}}</td>
+                      
+                        <td><a href="{% url 'update-category' cat.id %}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> ||
+                            <a href="{% url 'delete-category' cat.id %}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a> </td>
+                      </tr>
+                      {% endfor %}
+                  
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>

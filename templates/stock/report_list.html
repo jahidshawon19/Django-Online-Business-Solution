@@ -1,0 +1,72 @@
+{% load static %}
+{% include 'stock/header.html' %}
+{% include 'stock/sidebar.html' %}
+{% load crispy_forms_tags %}
+
+<style type="text/css">
+  *{
+    font-size: 13px;
+  }
+</style>
+<section class="py-5 mt-5">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-4"><h4 class="ml-3 mt-4 font-weight-bold text-center">Stock Report Table</h4>
+        <hr></div>
+        
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+
+        </div>
+      </div>
+        <div class="row">
+            <div class="col-lg-10 mt-2">
+            
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">SL</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Issue Quantity</th>
+                        <th scope="col">Issue To</th>
+                        <th scope="col">Receive Quantity</th>
+                        <th scope="col">Last Updated</th>
+                       
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for instance in queryset %}
+                      <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{instance.id}}</td>
+                        <td>{{instance.category}}</td>
+                        <td>{{instance.Product_Name}}</td>
+                        <td>{{instance.Quantity}}</td>
+                        <td>{{instance.Issue_Quantity}}</td>
+                        <td>{{instance.Issue_To}}</td>
+                        <td>{{instance.Receive_Quantity}}</td>
+                        <td>{{instance.Last_Updated}}</td>
+                      
+                        
+                      </tr>
+                      {% endfor %}
+                  
+                    </tbody>
+                  </table>
+            </div>
+
+            <div class="col-lg-2">
+            <form method='POST' action=''>
+            {% csrf_token %}
+            {{form|crispy}}
+          <input type="submit" class="btn btn-info" value='Search'/>
+        </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,62 @@
+{% load static %}
+<style type="text/css">
+  *{
+    font-size: 13px;
+  }
+</style>
+<aside class="sidebar">
+    <div class="sidebar-container">
+        <div class="sidebar-header">
+            <div class="brand">
+                <h3 class="font-weight-bold mt-2"> <a style="text-decoration:none; color: #fff;
+                    text-align: left;
+                    padding-left: 10px;
+                    line-height: 50px;
+                    font-size: 18px;" href="#">Online ERP Solution</a></h3></div>
+        </div>
+        <nav class="menu">
+            <ul class="sidebar-menu metismenu" id="sidebar-menu">
+                <li>
+                    <a href="{% url 'inventory-home-page' %}">
+                        <i class="fa fa-home"></i> Dashboard </a>
+                </li>
+                <li>
+                    <a href="{% url 'category-list' %}">
+                        <i class="fas fa-list-alt"></i> Category List </a>
+                </li>
+                <li>
+                    <a href="{% url 'add-category' %}">
+                        <i class="fas fa-plus"></i> Add New Category</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'all-products' %}">
+                        <i class="fas fa-list-ul"></i>Item List </a>
+                </li>
+                <li>
+                    <a href="{% url 'add-product' %}">
+                        <i class="far fa-plus-square"></i> Add New Item </a>
+                </li>
+                <li>
+                    <a href="{% url 'create-customer' %}">
+                        <i class="fas fa-user-plus"></i> Create Customer </a>
+                </li>
+              
+              
+
+                <li>
+                   
+                    <a href="" onclick=location.reload()>
+                        <i class="fas fa-retweet"></i> Refresh</a>
+                </li>
+
+
+               
+                
+
+            
+        </ul>
+        </nav>
+    </div>
+    
+</aside>

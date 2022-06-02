@@ -1,0 +1,83 @@
+{% load static %}
+{% include 'stock/header.html' %}
+{% include 'stock/sidebar.html' %}
+
+{% load crispy_forms_tags %}
+<style type="text/css">
+  *{
+    font-size: 13px;
+  }
+</style>
+<section class="py-5 mt-5">
+    <div class="container">
+        <h3 class="font-weight-bold">Add Vendor</h3>
+        
+           <div class="row mt-2">
+             
+               <div class="col-lg-10">
+                  <form action="" method="post">
+                      {% csrf_token %}
+                      {{form|crispy}}
+                      <input type="submit" class="btn btn-primary mb-5" value="Submit">
+                  </form>
+               </div>
+           </div>
+        
+    </div>
+</section>
+
+
+<!-- 
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row">
+    
+    <div class="col-lg-8">
+        <div class="form-group">
+            <label>Company Name</label>
+            {{form.comapny_name}}
+        </div>
+        <div class="form-group">
+            <label>Vendor Name</label>
+            {{form.vendor_name}}
+        </div>
+        <div class="form-group">
+            <label>Mobile No</label>
+            {{form.mobile_no}}
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            {{form.email}}
+        </div>
+     
+
+    
+
+   
+    
+
+  
+        <div class="form-group">
+            <label>City</label>
+            {{form.city}}
+        </div>
+        <div class="form-group">
+            <label>State</label>
+            {{form.state}}
+        </div>
+        <div class="form-group">
+            <label>Zipcode</label>
+            {{form.zip_code}}
+        </div>
+        <div class="form-group">
+            <label>Country</label>
+            {{form.country}}
+        </div>
+        </div>
+    
+</div>
+<button class="btn btn-primary">Submit</button>
+</form> -->
+
+
+{% include 'stock/footer.html' %}
