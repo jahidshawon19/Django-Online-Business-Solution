@@ -1,0 +1,1 @@
+web: gunicorn Stackblitz_ERP.wsgi --log-file -
