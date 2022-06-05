@@ -54,10 +54,11 @@
                         <th scope="col">Designation</th>
                         <th scope="col">Mobile</th>
                         <th scope="col">Email</th>
+                        {% if request.user.username == 'admin' %}
                         <th scope="col">Details</th>
                         
                         <th scope="col">Action</th>
-
+                        {% endif %}
                       </tr>
                     </thead>
                     <tbody>
@@ -76,14 +77,18 @@
                         <td>{{emp.designation}}</td>
                         <td>{{emp.mobile}}</td>
                         <td>{{emp.email}}</td>
-                        <td><a href="{% url 'employee-details' emp.id %}" class="btn btn-success btn-sm">Details</a></td>
+                        {% if request.user.username == 'admin' %}
+                        <td>
+                          <a href="{% url 'employee-details' emp.id %}" class="btn btn-success btn-sm">Details</a>
+                        
+                        </td>
                        
                         <td>
                             <a href="{% url 'update-employee' emp.id %}" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> ||
                             <a href="{% url 'delete-employee' emp.id %}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a> 
                            
                         </td>
-                        
+                        {% endif %}
 
                       </tr>
                       {% endfor %}
