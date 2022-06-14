@@ -38,13 +38,13 @@ class Employee(models.Model):
     designation = models.CharField(max_length=200,default='', null=True)
     salary = models.IntegerField(null=True)
     gender = models.CharField(max_length=50,default='', choices=GENDER, null=True) 
-    mobile = models.CharField(max_length=11,default='', null=True) 
-    email = models.EmailField(max_length=100,default='', null=True)
+    mobile = models.CharField(max_length=11, unique=True) 
+    email = models.EmailField(max_length=100,unique=True)
     dob = models.DateTimeField(null=True)
     joined_on =models.DateTimeField(null=True)
     address = models.TextField(default='', null=True)
     city = models.CharField(max_length=50, choices=CITY, default='', null=True)
-    country = models.CharField(max_length=50,default='', null=True) 
+    
 
     def __str__(self):
         return str(self.name)

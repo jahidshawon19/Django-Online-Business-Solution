@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'stock_module', # Stock Module App
     'inventory_module', # Inventory Module App 
     'hrm_module', # HRM Module App
-    'authenticationApp' # authentication
+    'authenticationApp', # authentication
+
+    'django_countries',
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

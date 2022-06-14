@@ -24,7 +24,9 @@
                   <form action="" method="post" >
                       {% csrf_token %}
                    
-                      <input type="submit" class="btn btn-primary" value="Submit">
+                      <button type="submit" class="btn btn-danger" onclick="attendance();" id="">Submit Attendance</button>
+
+                     
                   </form>
 
                
@@ -34,3 +36,9 @@
         
     </div>
   </section>
+
+  <script>
+      const attendance = () =>{
+        alert('Your Attendance Submitted Successfully!');
+      }
+</script>

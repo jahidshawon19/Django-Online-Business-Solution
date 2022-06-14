@@ -93,7 +93,7 @@ def attendance(request):
         if request.user.is_authenticated: 
             attend_object = Attendence(employee=request.user)
             attend_object.save()
-            return redirect('attendance-list')
+            # return redirect('attendance-list')
 
 
     return render(request, 'hrm/attendence_form.html',{})

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online ERP Solution </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <style>
+        .sm-text{
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div id="invoice">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h3 class="text-warning">Online ERP Solution</h3>
+                        <br>
+                        <strong>{{customer.name}}</strong>
+                        <h6 class="sm-text">Mobile: {{customer.phone}}</h6>
+                        <h6 class="sm-text">Email: {{customer.email}}</h6>
+                    </div>
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <small>House:4/B Road: 94, Gulshan-02, Dhaka-1212</small>
+                        <br><br>
+                        <h6>Shipment: #{{random_num}}</h6>
+                        <h6 class="sm-text">Created: <span id="demo"></span></h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="mt-1">
+            <div class="container">
+                <div class="row">
+                   
+                    <div class="col-lg-10">
+                        <table class="table  table-bordered">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col" class="sm-text">SL</th>
+                                <th scope="col" class="sm-text">Product Name</th>
+                                <th scope="col" class="sm-text">Unit Price</th>
+                                <th scope="col" class="sm-text">Quantity</th>
+                                <th scope="col" class="sm-text">Total</th>
+                                <th scope="col" class="sm-text">Order Date</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in orders %}
+                                <tr>
+                                    <td class="sm-text">{{forloop.counter}}</td>
+                                    <td class="sm-text">{{order.product}}</td>
+                                    <td class="sm-text">{{order.product.Price}}</td>
+                                    <td class="sm-text">{{order.quantity}}</td>
+                                    <td class="sm-text">{{order.total}}</td>
+                                    <td class="sm-text">{{order.date_created}}</td>
+                                
+                                </tr>
+                           {% endfor %}
+                           
+                            </tbody>
+                          </table>
+                    </div>
+                    <div class="col-lg-2"></div>
+                   
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <hr>
+                        <small>Thank you for ordering. We offer a 7 day return/refund policy for non-perishable and a 1-day return/refund policy for perishable. If you have any complaints about this order call use 17305 or email us as support@fyp.com</small>
+                    </div>
+                </div>
+             
+                
+            </div>
+        </section>
+    </div>
+
+   
+    <br><br><br>
+    <button onclick="generatePDF()">Download</button>
+
+    <script>
+        
+
+
+        function generatePDF(){
+            const element = document.getElementById("invoice")
+            html2pdf()
+            .from(element)
+            .save()
+        }
+    </script>
+
+    <script>
+        const d = new Date();
+        document.getElementById("demo").innerHTML = d;
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

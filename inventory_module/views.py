@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+import random
 from .models import *
 from .forms import CreateCustomerForm, OrderForm, UpdateCustomerForm 
 # Create your views here.
@@ -41,13 +41,37 @@ def customer(request, pk):
     customer = Customer.objects.get(id=pk)
     orders = customer.order_set.all()  #here fetch specific customer's order information. 
     total_orders = orders.count()
+   
+    
+
     context = {
         'customer':customer,
         'orders':orders,
         'total_orders': total_orders,
+   
+        
+        
     }
     return render(request, 'inventory/customer.html', context)
 
+def customer_report(request, pk):
+    customer = Customer.objects.get(id=pk)
+    orders = customer.order_set.all()  #here fetch specific customer's order information. 
+    total_orders = orders.count()
+    random_num =  random.randint(2345678909800, 9923456789000)
+  
+
+    context = {
+        'customer':customer,
+        'orders':orders,
+        'total_orders': total_orders,
+        'random_num':random_num,
+     
+        
+        
+        
+    }
+    return render(request, 'inventory/customer_details.html', context)
 
 def create_customer(request):
     form = CreateCustomerForm()
@@ -107,7 +131,7 @@ def delete_order(request, pk):
         order.delete() 
         return redirect('inventory-home-page')
     context ={
-        'item': order.product.name
+        'item': order.product.Product_Name
     }
 
     return render(request, 'inventory/order_delete.html', context )

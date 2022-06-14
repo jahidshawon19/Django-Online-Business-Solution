@@ -6,8 +6,8 @@ from stock_module.models import Stock
 
 class Customer(models.Model):
     name = models.CharField(max_length=200)
-    phone = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
+    phone = models.CharField(max_length=11, unique=True)
+    email = models.CharField(max_length=50, unique=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
 
@@ -51,5 +51,7 @@ class Order(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=200, choices=STATUS)
 
+    def total(self):
+        return self.quantity*self.product.Price
     def __str__(self):
         return str(self.customer.name)
